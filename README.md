@@ -1,20 +1,19 @@
-# Storefront API
+# DB Performance Trace Seed
 
-Laravel 11 (PHP 8.3) backend for Acme Commerce storefront workflows. The codebase follows MVC entry points with a thin service/repository layer for business operations and persistence, Eloquent models for domain relationships, Sanctum for API authentication, and queued jobs/listeners for asynchronous work.
+This repository contains compact mock source code for tracing slow PostgreSQL queries back to the code that fires them.
 
-## Architecture
+The service folders keep the original workflow service names and paths where possible:
 
-- API routes are versioned under `/api/v1`.
-- Controllers live in `App\\Http\\Controllers\\Api\\V1` and return JSON resources.
-- Services coordinate validation-sensitive workflows for products, carts, and orders.
-- Repositories hide query details for product and order persistence.
-- Product reads use cache entries keyed by product id; writes clear those keys.
-- Policies protect product management and customer order access.
-- Orders, carts, products, categories, addresses, and users are represented with Eloquent relationships.
+- api-node: TypeScript API with controllers, services, repositories, routes, and a small GraphQL entry.
+- workers-python: Python workers for the revenue report and inventory sync jobs.
+- supabase-functions: Supabase edge function plus the recalc_cart SQL RPC.
+- web-storefront: Next.js screens that call checkout, auth, search, cart, and order endpoints.
+- admin-panel: React admin screens for revenue and user export workflows.
 
-## Known Analysis Hooks
+## Trace catalog
 
-- `ProductController@index` intentionally accesses category data inside a loop after loading products.
-- `ProductController@show` and `ProductService` use cache keys that must be invalidated by related product changes.
-- Sanctum-protected routes and policies are registered for authenticated workflows.
-- Existing feature tests cover product listing and order service behavior.
+Q1-Q10 are represented by real code paths and SQL statements. Q11 Session Cleanup and Q12 Ad-hoc Analytics are deliberately absent from source code so the workflow can exercise the Not Traceable path.
+
+## Database
+
+The schema in migrations/schema.sql deliberately omits the indexes that would fix the slow queries, including payments(user_id), users(lower(email)), trigram product search indexes, and supporting reporting partitions.
