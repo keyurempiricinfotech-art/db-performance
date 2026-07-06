@@ -2,17 +2,21 @@
 
 This repository contains compact mock source code for tracing slow PostgreSQL queries back to the code that fires them.
 
-The service folders keep the original workflow service names and paths where possible:
+The service folders keep the workflow service names and paths:
 
-- api-node: TypeScript API with controllers, services, repositories, routes, and a small GraphQL entry.
-- workers-python: Python workers for the revenue report and inventory sync jobs.
-- supabase-functions: Supabase edge function plus the recalc_cart SQL RPC.
+- api-node: TypeScript API with controllers, repositories, routes, and GraphQL resolvers.
+- workers-python: Python workers for revenue, inventory, notification, finance, and digest jobs.
+- supabase-functions: Supabase edge functions plus SQL/RPC-style call sites.
 - web-storefront: Next.js screens that call checkout, auth, search, cart, and order endpoints.
-- admin-panel: React admin screens for revenue and user export workflows.
+- admin-panel: React admin screens for revenue, metrics, and user export workflows.
 
 ## Trace catalog
 
-Q1-Q10 are represented by real code paths and SQL statements. Q11 Session Cleanup and Q12 Ad-hoc Analytics are deliberately absent from source code so the workflow can exercise the Not Traceable path.
+Q1-Q26 are represented by real code paths and SQL statements. Q11 Session Cleanup, Q12 Ad-hoc Analytics, Q27 Legacy Report, and Q28 Manual Backfill deliberately have no matching source code when marked untraceable by the seed sheets.
+
+## Ranking and ownership tests
+
+The Drive seed sheets include more than 20 distinct fingerprints, folded query variants, N+1 trace proof rows, impact-unknown background jobs, and previous-run tracker rows. The root CODEOWNERS file intentionally starts with a catch-all default and then uses later, more specific rules so last-match-wins behavior can be tested. Q23 audit logging intentionally falls through to the default platform owner.
 
 ## Database
 
