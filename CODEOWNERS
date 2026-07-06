@@ -1,5 +1,4 @@
 * @platform-team
-/api-node/src/** @platform-team
 /api-node/src/payments/** @payments-team
 /api-node/src/auth/** @auth-team
 /api-node/src/cart/** @orders-team
