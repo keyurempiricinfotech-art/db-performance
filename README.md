@@ -2,7 +2,7 @@
 
 This repository contains fresh WF seed source code for tracing slow PostgreSQL queries back to the code that fires them.
 
-Current seed generation: WF rerun seed refreshed on 2026-07-09.
+Current seed generation: model-comparison seed refreshed on 2026-07-09.
 
 The service folders keep the workflow service names and paths:
 
