@@ -4,7 +4,7 @@ export class OrderRepository {
   constructor(private readonly db: Queryable) {}
 
   async listOrdersForUser(userId: number) {
-    // queryid: Q5-ae21f74b
+    // queryid: Q5-c403117c
     return this.db.query(
       "SELECT o.*, oi.* FROM orders o JOIN order_items oi ON oi.order_id = o.id WHERE o.user_id = $1 ORDER BY o.created_at DESC;",
       [userId]
@@ -12,7 +12,7 @@ export class OrderRepository {
   }
 
   async updateStatus(orderId: number, status: string) {
-    // queryid: Q15-37c1e0ad
+    // queryid: Q15-49ca58df
     const rows = await this.db.query(
       "UPDATE orders SET status = $1, updated_at = now() WHERE id = $2 RETURNING id, status;",
       [status, orderId]
