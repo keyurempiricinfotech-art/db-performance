@@ -4,7 +4,7 @@ export class AdminUserController {
   constructor(private readonly db: DbClient) {}
 
   async exportUsers() {
-    // queryid: Q9-f8306abe
+    // queryid: Q9-c80317c8
     const sql = "SELECT * FROM users ORDER BY created_at DESC;";
     const result = await this.db.query(sql);
     return {
