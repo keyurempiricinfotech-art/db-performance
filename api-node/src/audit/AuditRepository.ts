@@ -7,7 +7,7 @@ export class AuditRepository {
     const values = events.map((_, index) => `($${index * 3 + 1}, $${index * 3 + 2}, $${index * 3 + 3}, now())`).join(", ");
     const params = events.flatMap((event) => [event.actorId, event.action, event.entityId]);
 
-    // queryid: Q23-3e7bd19c
+    // queryid: Q23-d7d1f42e
     return this.db.query(
       `INSERT INTO audit_log(actor_id, action, entity_id, created_at) VALUES ${values} RETURNING id;`,
       params
