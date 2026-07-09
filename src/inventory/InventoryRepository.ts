@@ -13,7 +13,7 @@ export class InventoryRepository {
     const stockRows = [];
 
     for (const line of lines) {
-      // queryid: Q1-7b6a3d9f
+      // queryid: Q1-b58c2a91
       const sql = `SELECT sku, available_quantity FROM inventory WHERE sku = '${line.sku}' AND warehouse_id = ${line.warehouseId};`;
       const [row] = await this.dataSource.query(sql);
       stockRows.push({ ...row, requestedQuantity: line.quantity });
