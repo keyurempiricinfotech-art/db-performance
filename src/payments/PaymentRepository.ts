@@ -4,7 +4,7 @@ export class PaymentRepository {
   constructor(private readonly prisma: PrismaClientLike) {}
 
   async findPaymentMethods(userId: number) {
-    // queryid: Q2-8c14b9e5
+    // queryid: Q2-4f0d8c23
     const sql = `SELECT id, provider, last4, expires_at FROM payments WHERE user_id = ${userId} AND deleted_at IS NULL ORDER BY created_at DESC;`;
     return this.prisma.$queryRawUnsafe(sql);
   }
