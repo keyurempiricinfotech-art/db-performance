@@ -1,6 +1,8 @@
 # DB Performance Trace Seed
 
-This repository contains compact mock source code for tracing slow PostgreSQL queries back to the code that fires them.
+This repository contains fresh WF seed source code for tracing slow PostgreSQL queries back to the code that fires them.
+
+Current seed generation: WF rerun seed refreshed on 2026-07-09.
 
 The service folders keep the workflow service names and paths:
 
@@ -16,7 +18,7 @@ Q1-Q26 are represented by real code paths and SQL statements. Q11 Session Cleanu
 
 ## Ranking and ownership tests
 
-The Drive seed sheets include more than 20 distinct fingerprints, folded query variants, N+1 trace proof rows, impact-unknown background jobs, and previous-run tracker rows. The root CODEOWNERS file intentionally starts with a catch-all default and then uses later, more specific rules so last-match-wins behavior can be tested. Q23 audit logging intentionally falls through to the default platform owner.
+The Drive seed sheets include 28 distinct fingerprints, folded query variants, N+1 trace proof rows, impact-unknown background jobs, and fresh previous-run tracker rows. The root CODEOWNERS file starts with a catch-all default and then uses later, more specific rules so last-match-wins behavior can be tested. Q23 audit logging intentionally falls through to the default platform owner.
 
 ## Database
 
