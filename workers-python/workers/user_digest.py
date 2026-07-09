@@ -1,6 +1,6 @@
 from sqlalchemy import text
 
-QUERY_ID = "Q3-f61de2a8"
+QUERY_ID = "Q3-9b6e2fa1"
 
 
 def build_user_digest(session, email):
