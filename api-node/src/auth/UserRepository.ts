@@ -10,7 +10,7 @@ export class UserRepository {
   constructor(private readonly db: Queryable) {}
 
   async findUserByEmail(email: string): Promise<UserRecord | null> {
-    // queryid: Q3-f61de2a8
+    // queryid: Q3-9b6e2fa1
     const rows = await this.db.query<UserRecord>(
       "SELECT id, email, status FROM users WHERE email = $1 LIMIT 1;",
       [email]
