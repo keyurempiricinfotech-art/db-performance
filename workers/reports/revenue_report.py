@@ -1,7 +1,7 @@
 from datetime import date
 from sqlalchemy import text
 
-QUERY_ID = "Q7-d0e9a35f"
+QUERY_ID = "Q7-c60314a2"
 
 
 def build_daily_revenue(session, start_date: date, end_date: date):
