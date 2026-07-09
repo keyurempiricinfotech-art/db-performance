@@ -6,7 +6,7 @@ export class ProductRepository {
   async searchProducts(term: string) {
     const escaped = term.replace(/'/g, "''");
 
-    // queryid: Q4-e72bd145
+    // queryid: Q4-0b9c72d1
     const sql = `SELECT id, name, description, price FROM products WHERE name ILIKE '%${escaped}%' OR description ILIKE '%${escaped}%' ORDER BY updated_at DESC;`;
 
     const result = await this.knex.raw(sql);
