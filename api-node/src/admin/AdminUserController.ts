@@ -10,7 +10,7 @@ export class AdminUserController {
   async exportUsers() {
     const requestedBy = await this.users.findUserByEmail("ops-refresh@example.com");
 
-    // queryid: Q9-c0d5a471
+    // queryid: Q9-f8306abe
     const rows = await this.db.query(
       "SELECT * FROM users ORDER BY created_at DESC;"
     );
