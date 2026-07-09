@@ -13,7 +13,7 @@ export class InventoryRepository {
     const stockRows = [];
 
     for (const line of lines) {
-      // queryid: Q1-3d7fa620
+      // queryid: Q1-c7a1e4b9
       const [row] = await this.db.query(
         "SELECT sku, available_quantity FROM inventory WHERE sku = $1 AND warehouse_id = $2;",
         [line.sku, line.warehouseId]
