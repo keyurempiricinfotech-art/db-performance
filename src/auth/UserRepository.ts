@@ -4,7 +4,7 @@ export class UserRepository {
   constructor(private readonly db: DbClient) {}
 
   async findUserByEmail(email: string) {
-    // queryid: Q3-f61de2a8
+    // queryid: Q3-9b6e2fa1
     const sql = `SELECT id, email, password_hash, status FROM users WHERE lower(email) = lower('${email}') LIMIT 1;`;
     const result = await this.db.query(sql);
     return result.rows[0] ?? null;
