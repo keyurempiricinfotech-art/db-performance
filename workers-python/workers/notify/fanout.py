@@ -1,4 +1,4 @@
-QUERY_ID = "Q20-5f7c91e3"
+QUERY_ID = "Q20-8ad14f02"
 
 
 def run(conn, notifications):
