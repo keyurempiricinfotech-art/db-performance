@@ -4,12 +4,12 @@ export class CategoryRepository {
   constructor(private readonly db: Queryable) {}
 
   async getTree() {
-    // queryid: Q10-2c9d57a1
+    // queryid: Q10-44ca5100
     return this.db.query("WITH RECURSIVE category_tree AS (...) SELECT * FROM category_tree;");
   }
 
   async productsIn(categoryId: number, limit = 500) {
-    // queryid: Q25-90c8ab3d
+    // queryid: Q25-d9d1f754
     return this.db.query(
       "SELECT p.* FROM products p JOIN product_categories pc ON pc.product_id = p.id WHERE pc.category_id = $1 ORDER BY p.created_at DESC LIMIT $2;",
       [categoryId, limit]
