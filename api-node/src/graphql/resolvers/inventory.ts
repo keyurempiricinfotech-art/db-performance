@@ -6,7 +6,7 @@ export function buildInventoryResolvers(db: Queryable) {
       async availability(_: unknown, args: { variantIds: number[] }) {
         const results = [];
         for (const variantId of args.variantIds) {
-          // queryid: Q18-6da3f7b2
+          // queryid: Q18-1f4a9c7d
           const [row] = await db.query(
             "SELECT variant_id, available_quantity FROM inventory WHERE variant_id = $1;",
             [variantId]
