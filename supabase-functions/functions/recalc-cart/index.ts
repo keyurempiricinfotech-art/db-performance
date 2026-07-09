@@ -3,7 +3,7 @@ import { serve } from "https://deno.land/std/http/server.ts";
 serve(async (req) => {
   const { cartId } = await req.json();
 
-  // queryid: Q6-aa17d4e2
+  // queryid: Q6-18b4ca90
   const sql = "SELECT * FROM recalc_cart($1);";
 
   const response = await fetch(`${Deno.env.get("SUPABASE_URL")}/rest/v1/rpc/recalc_cart`, {
