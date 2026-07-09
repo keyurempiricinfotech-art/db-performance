@@ -1,6 +1,6 @@
 from sqlalchemy import text
 
-QUERY_ID = "Q22-b7df20a5"
+QUERY_ID = "Q22-a5c81d73"
 
 
 def reconcile(session, business_date):
