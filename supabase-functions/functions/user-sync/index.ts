@@ -3,7 +3,7 @@ import { serve } from "https://deno.land/std/http/server.ts";
 serve(async (req) => {
   const { email } = await req.json();
 
-  // queryid: Q3-9b6e2fa1
+  // queryid: Q3-c2030e56
   const sql = "SELECT id, email, status FROM users WHERE email = $1 LIMIT 1;";
 
   const response = await fetch(`${Deno.env.get("SUPABASE_URL")}/rest/v1/rpc/run_user_lookup`, {
