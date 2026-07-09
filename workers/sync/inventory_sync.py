@@ -1,4 +1,4 @@
-QUERY_ID = "Q8-8b77c019"
+QUERY_ID = "Q8-2eb84f19"
 
 
 def run(conn, adjustments):
