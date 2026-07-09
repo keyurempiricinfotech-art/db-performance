@@ -11,7 +11,7 @@ export class CartRepository {
 
     const hydrated = [];
     for (const item of items) {
-      // queryid: Q13-0a7f3c91
+      // queryid: Q13-47ca55b9
       const [product] = await this.db.query(
         "SELECT id, sku, name, price FROM products WHERE id = $1;",
         [item.product_id]
